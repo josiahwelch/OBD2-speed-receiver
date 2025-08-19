@@ -5,8 +5,8 @@
 from serial import Serial
 
 class SerialReceiver:
-    def __init__(self, com_port):
-        self.ser = Serial(com_port, 9600)
+    def __init__(self, com_port, timeout=1):
+        self.ser = Serial(com_port, 9600, timeout=timeout)
 
     def get_data(self):
         return self.ser.readline()

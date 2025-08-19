@@ -5,24 +5,23 @@ void setup() {
   SerialUSB.begin(9600);
   while (!SerialUSB);
 
-  LoRa.setPins(8, 4, 3); // NSS, RESET, DIO0 – adjust to your wiring
+  //LoRa.setPins(8, 4, 3); // NSS, RESET, DIO0 – adjust to your wiring
+  LoRa.setPins(12, 4, 3); // NSS, RESET, DIO0 – adjust to your wiring
 
   if (!LoRa.begin(915E6)) {
-    SerialUSB.println("LoRa init failed!");
+    //SerialUSB.println("LoRa init failed!");
     while (1);
   }
-  SerialUSB.println("LoRa Receiver");
+  //SerialUSB.println("LoRa Receiver");
 }
 
 void loop() {
   int packetSize = LoRa.parsePacket();
   if (packetSize) {
-    SerialUSB.print("Received: ");
+    //SerialUSB.print("Received: ");
     while (LoRa.available()) {
       SerialUSB.print((char)LoRa.read());
     }
-    SerialUSB.println("not received");
   }
-  delay(100);
 }
 

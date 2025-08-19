@@ -9,5 +9,5 @@ class SerialReceiver:
         self.ser = Serial(com_port, 9600, timeout=timeout)
 
     def get_data(self):
-        return self.ser.readline()
+        return self.ser.readline().decode('utf-8').strip()
 

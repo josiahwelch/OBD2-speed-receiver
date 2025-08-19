@@ -30,7 +30,7 @@ class SpeedLabel(QLabel):
         self.listening_thread.join()
 
     def _run(self):
-        self.setText(self._serial_receiver.get_data())
+        self.setText(str(self._serial_receiver.get_data()))
 
 class SpeedShowGUI(QMainWindow):
     def __init__(self, com_port, parent=None):
@@ -44,7 +44,7 @@ class SpeedShowGUI(QMainWindow):
 def __main__():
     app = QApplication(sys.argv)
     #window = SpeedShowGUI(sys.argv[1], parent=app)
-    window = SpeedShowGUI("COM4")
+    window = SpeedShowGUI("COM1")
     window.show()
 
     app.exec()
